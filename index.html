@@ -1,163 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Proposal for Anushka</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffe6f2;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            overflow: hidden;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #e91e63;
-        }
-        .photo {
-            margin: 20px 0;
-        }
-        .photo img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .dialogue {
-            font-size: 18px;
-            margin: 20px 0;
-            color: #ad1457;
-        }
-        .buttons {
-            margin: 20px 0;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #yes {
-            background-color: #4caf50;
-            color: white;
-        }
-        #no {
-            background-color: #f44336;
-            color: white;
-        }
-        .hidden {
-            display: none;
-        }
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            animation: float 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
-        .color-picker {
-            margin: 20px 0;
-        }
-        .color-picker label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .color-picker input {
-            width: 100px;
-        }
-        .upload {
-            margin: 20px 0;
-        }
-        .upload input {
-            display: block;
-            margin: 10px auto;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anushka ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#ffc1e3);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+text-align:center;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+box-sizing:border-box;
+}
+
+.hidden{display:none;}
+
+h1{
+color:#ff0066;
+font-size:28px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:30px;
+margin:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+#yesBtn{
+background:#ff0066;
+color:white;
+}
+
+#noBtn{
+background:white;
+color:#ff0066;
+position:relative;
+}
+
+img{
+max-width:90%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.romantic-text{
+margin-top:20px;
+font-size:18px;
+color:#b30059;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Happy Valentine's Day, Anushka! 💕</h1>
-        <div class="photo">
-            <img src="photo1.jpg" alt="Our Photo">
-        </div>
-        <div class="dialogue">
-            "Anushka, you are the light of my life, the beat in my heart, and the smile on my face. Will you be my Valentine forever?"
-        </div>
-        <div class="color-picker">
-            <label for="bg-color">Pick Background Color:</label>
-            <input type="color" id="bg-color" value="#ffe6f2">
-        </div>
-        <div class="upload">
-            <label>Upload a Photo:</label>
-            <input type="file" id="photo-upload" accept="image/*">
-            <img id="uploaded-photo" class="hidden" alt="Uploaded Photo">
-        </div>
-        <div class="buttons">
-            <button id="yes">Yes 💖</button>
-            <button id="no">No 😢</button>
-        </div>
-        <div id="after-yes" class="hidden">
-            <h2>Yay! I love you, Anushka! Here's our special photo:</h2>
-            <img src="our_special_photo.jpg" alt="Our Special Photo" style="max-width: 100%; height: auto; border-radius: 10px;">
-        </div>
-    </div>
 
-    <script>
-        // Flying hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = '💕';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.remove();
-            }, 3000);
-        }
-        setInterval(createHeart, 500);
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+<h1>❤️ Anushka ❤️</h1>
+<h2>Will you be my Valentine? 💖</h2>
+<button id="yesBtn" onclick="nextPage()">Yes ❤️</button>
+<button id="noBtn" onclick="moveNo()">No 😏</button>
+</div>
 
-        // Color picker
-        document.getElementById('bg-color').addEventListener('input', function() {
-            document.body.style.backgroundColor = this.value;
-        });
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+<h1>You are my everything 💕</h1>
+<p>Har din tumhare saath special lagta hai ✨</p>
+<button onclick="finalPage()">Continue 💌</button>
+</div>
 
-        // Photo upload
-        document.getElementById('photo-upload').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('uploaded-photo');
-                    img.src = e.target.result;
-                    img.classList.remove('hidden');
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+<h1>Happy Valentine’s Day Anushka 💖</h1>
 
-        // Yes/No buttons
-        document.getElementById('yes').addEventListener('click', function() {
-            document.querySelector('.container').innerHTML = document.getElementById('after-yes').innerHTML;
-        });
-        document.getElementById('no').addEventListener('click', function() {
-            alert("Oh no! Please reconsider? 😢");
-        });
-    </script>
+<img src="photo.jpg" alt="Our Photo">
+
+<div class="romantic-text">
+Anushka, tum meri zindagi ki sabse khoobsurat feeling ho.  
+Tum meri smile ho, meri peace ho, meri forever ho ❤️  
+</div>
+</div>
+
+<script>
+
+let noTexts = ["Really? 😜","Nice Try 😏","Soch lo 😌","Pakka? 😂"];
+let count = 0;
+
+function moveNo(){
+let btn = document.getElementById("noBtn");
+btn.style.position="absolute";
+btn.style.left=Math.random()*70+"%";
+btn.style.top=Math.random()*70+"%";
+
+btn.innerHTML = noTexts[count % noTexts.length];
+count++;
+}
+
+function nextPage(){
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+}
+
+function finalPage(){
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+confettiEffect();
+}
+
+function confettiEffect(){
+for(let i=0;i<100;i++){
+let div=document.createElement("div");
+div.style.position="absolute";
+div.style.width="10px";
+div.style.height="10px";
+div.style.background="hsl("+Math.random()*360+",100%,50%)";
+div.style.left=Math.random()*100+"%";
+div.style.top="-10px";
+div.style.borderRadius="50%";
+document.body.appendChild(div);
+
+div.animate([
+{transform:"translateY(0px)"},
+{transform:"translateY(100vh)"}
+],{
+duration:2000,
+iterations:1
+});
+}
+}
+
+</script>
+
 </body>
 </html>

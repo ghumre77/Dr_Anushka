@@ -1,51 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Anushka ❤️</title>
 
 <style>
 body{
     margin:0;
-    padding:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #ffd6e7, #ffeef5);
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    background:#f7dce5;
+    font-family:Arial, sans-serif;
 }
 
-.page{
-    display:none;
-    text-align:center;
+/* Card */
+.card{
     width:90%;
     max-width:400px;
     background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    padding:30px 20px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
-.active{
-    display:block;
-}
-
-h1{
-    color:#e91e63;
-    margin-bottom:10px;
-}
-
-h2{
-    margin-top:5px;
-}
-
+/* Buttons */
 button{
-    padding:12px 25px;
+    padding:12px 30px;
     margin:10px;
     border:none;
-    border-radius:25px;
+    border-radius:30px;
     font-size:16px;
     cursor:pointer;
 }
@@ -56,43 +42,49 @@ button{
 }
 
 .no{
-    background:#eee;
+    background:#e0e0e0;
+}
+
+/* Hide page2 initially */
+#page2{
+    display:none;
 }
 
 img{
     width:100%;
+    border-radius:20px;
     margin-top:15px;
-    border-radius:15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<div class="page active" id="page1">
-    <h1>❤️ Anushka ❤️</h1>
-    <h2>Will you be my Valentine? 💕</h2>
+<!-- PAGE 1 (NO PHOTO HERE) -->
+<div class="card" id="page1">
+    <h1 style="color:#e91e63;">❤️ Anushka ❤️</h1>
+    <h2>Will you be my Valentine? 💖</h2>
 
-    <button class="yes" onclick="goToPage2()">Yes 💖</button>
-    <button class="no" id="noBtn">No</button>
+    <button class="yes" onclick="showPage2()">Yes ✨</button>
+    <button class="no" id="noBtn">No 🥺</button>
 
-    <p style="margin-top:20px;color:#777;">
+    <p style="margin-top:20px;color:#888;">
         "Every moment with you feels like a dream come true..."
     </p>
 </div>
 
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-    <h1>Happy Valentine’s Day ❤️</h1>
+<!-- PAGE 2 (PHOTO SHOWS HERE ONLY AFTER YES) -->
+<div class="card" id="page2">
+    <h2>Yayyyy ❤️</h2>
+    <p>You made my day 💕</p>
     <img src="photo1.jpg" alt="Our Photo">
-    <p style="color:#e91e63;">Forever starts with you 💕</p>
 </div>
 
 <script>
-function goToPage2(){
-    document.getElementById("page1").classList.remove("active");
-    document.getElementById("page2").classList.add("active");
+
+function showPage2(){
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
 }
 
 document.getElementById("noBtn").addEventListener("click", function(){
@@ -100,6 +92,7 @@ document.getElementById("noBtn").addEventListener("click", function(){
     this.style.left=Math.random()*300+"px";
     this.style.top=Math.random()*400+"px";
 });
+
 </script>
 
 </body>

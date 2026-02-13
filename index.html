@@ -1,40 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Anushka ❤️</title>
 
 <style>
 body{
     margin:0;
-    height:100vh;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #ffd6e7, #ffeef5);
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#ffe6f2;
-    font-family:Arial, sans-serif;
-    overflow:hidden;
+    height:100vh;
 }
 
-.container{
-    width:90%;
-    max-width:420px;
-    background:white;
-    padding:25px;
-    border-radius:25px;
+.page{
+    display:none;
     text-align:center;
+    width:90%;
+    max-width:400px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.active{
+    display:block;
 }
 
 h1{
     color:#e91e63;
+    margin-bottom:10px;
+}
+
+h2{
+    margin-top:5px;
 }
 
 button{
     padding:12px 25px;
     margin:10px;
     border:none;
-    border-radius:30px;
+    border-radius:25px;
     font-size:16px;
     cursor:pointer;
 }
@@ -45,85 +56,50 @@ button{
 }
 
 .no{
-    background:#ddd;
+    background:#eee;
 }
 
 img{
     width:100%;
-    border-radius:20px;
     margin-top:15px;
-}
-
-.heart{
-    position:absolute;
-    font-size:22px;
-    animation:float 3s linear forwards;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(0);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-600px);
-        opacity:0;
-    }
+    border-radius:15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- FIRST PAGE -->
-<div class="container" id="page1">
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
     <h1>❤️ Anushka ❤️</h1>
-    <h2>Will you be my Valentine? ✨</h2>
+    <h2>Will you be my Valentine? 💕</h2>
 
-    <button class="yes" onclick="showLove()">Yes 💕</button>
+    <button class="yes" onclick="goToPage2()">Yes 💖</button>
     <button class="no" id="noBtn">No</button>
 
-    <p style="margin-top:20px;color:#888;">
+    <p style="margin-top:20px;color:#777;">
         "Every moment with you feels like a dream come true..."
     </p>
 </div>
 
-<!-- SECOND PAGE -->
-<div class="container" id="page2" style="display:none;">
-    <h2>Happy Valentine’s Bayko Day ❤️</h2>
-    <img src="ourphoto.jpg" alt="Our Photo">
-    <p style="color:#e91e63;">Forever starts with you 💖</p>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>Happy Valentine’s Day ❤️</h1>
+    <img src="photo1.jpg" alt="Our Photo">
+    <p style="color:#e91e63;">Forever starts with you 💕</p>
 </div>
 
 <script>
-
-function showLove(){
-    document.getElementById("page1").style.display="none";
-    document.getElementById("page2").style.display="block";
-    startHearts();
+function goToPage2(){
+    document.getElementById("page1").classList.remove("active");
+    document.getElementById("page2").classList.add("active");
 }
 
-document.getElementById("noBtn").addEventListener("mouseover", function(){
+document.getElementById("noBtn").addEventListener("click", function(){
     this.style.position="absolute";
     this.style.left=Math.random()*300+"px";
     this.style.top=Math.random()*400+"px";
 });
-
-function startHearts(){
-    setInterval(function(){
-        var heart=document.createElement("div");
-        heart.className="heart";
-        heart.innerHTML="💕";
-        heart.style.left=Math.random()*window.innerWidth+"px";
-        heart.style.bottom="0px";
-        document.body.appendChild(heart);
-
-        setTimeout(function(){
-            heart.remove();
-        },3000);
-    },300);
-}
-
 </script>
 
 </body>

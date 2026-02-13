@@ -1,162 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Proposal for Anushka</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffe6f2;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            overflow: hidden;
-        }
-        .container {
-            max-width: 90%; /* Mobile-friendly: uses 90% of screen width */
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #e91e63;
-            font-size: 1.5em; /* Scales better on small screens */
-        }
-        .photo img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .dialogue {
-            font-size: 1.1em; /* Readable on phones */
-            margin: 20px 0;
-            color: #ad1457;
-        }
-        .buttons {
-            margin: 20px 0;
-        }
-        button {
-            padding: 15px 25px; /* Larger for touch */
-            margin: 0 10px;
-            font-size: 1.2em; /* Bigger text */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            min-width: 100px; /* Prevents tiny buttons */
-        }
-        #yes {
-            background-color: #4caf50;
-            color: white;
-        }
-        #no {
-            background-color: #f44336;
-            color: white;
-        }
-        .heart {
-            position: absolute;
-            font-size: 1.5em; /* Visible on mobile */
-            animation: float 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
-        .color-picker {
-            margin: 20px 0;
-        }
-        .color-picker label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1em;
-        }
-        .color-picker input {
-            width: 80px; /* Smaller for mobile */
-        }
-        .upload {
-            margin: 20px 0;
-        }
-        .upload input {
-            display: block;
-            margin: 10px auto;
-            font-size: 1em;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anushka ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background:#ffd6e7;
+text-align:center;
+color:#e91e63;
+}
+
+.page{
+display:none;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.active{
+display:flex;
+}
+
+h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:25px;
+font-size:16px;
+cursor:pointer;
+}
+
+#yes{
+background:#e91e63;
+color:white;
+}
+
+#no{
+background:white;
+color:#e91e63;
+border:2px solid #e91e63;
+}
+
+img{
+max-width:90%;
+border-radius:15px;
+margin-top:20px;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Happy Valentine's Day, Anushka! 💕</h1>
-        <div class="photo">
-            <img src="photo1.jpg" alt="Our Photo">
-        </div>
-        <div class="dialogue">
-            "Anushka, you are the light of my life, the beat in my heart, and the smile on my face. Will you be my Valentine forever?"
-        </div>
-        <div class="color-picker">
-            <label for="bg-color">Pick Background Color:</label>
-            <input type="color" id="bg-color" value="#ffe6f2">
-        </div>
-        <div class="upload">
-            <label>Upload a Photo:</label>
-            <input type="file" id="photo-upload" accept="image/*">
-            <img id="uploaded-photo" class="hidden" alt="Uploaded Photo">
-        </div>
-        <div class="buttons">
-            <button id="yes">Yes 💖</button>
-            <button id="no">No 😢</button>
-        </div>
-    </div>
 
-    <script>
-        // Flying hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = '💕';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => {
-                heart.remove();
-            }, 3000);
-        }
-        setInterval(createHeart, 500);
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+<h1>❤️ Anushka ❤️</h1>
+<h2>Will you be my Valentine?</h2>
+<div>
+<button id="yes">Yes 💖</button>
+<button id="no">No 🙈</button>
+</div>
+</div>
 
-        // Color picker
-        document.getElementById('bg-color').addEventListener('input', function() {
-            document.body.style.backgroundColor = this.value;
-        });
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+<h1>Happy Valentine's Day 💕</h1>
+<img src="photo1.jpg">
+<p style="margin-top:20px;font-size:18px;">
+Teri hasi meri duniya hai ❤️<br>
+Tera saath meri zindagi hai 💞<br>
+I love you forever, Anushka 💖
+</p>
+</div>
 
-        // Photo upload
-        document.getElementById('photo-upload').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('uploaded-photo');
-                    img.src = e.target.result;
-                    img.classList.remove('hidden');
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+<script>
+let noTexts = ["Really? 😏","Nice try 😜","Soch lo 😌"];
+let i = 0;
 
-        // Yes button redirects to yes.html
-        document.getElementById('yes').addEventListener('click', function() {
-            window.location.href = 'yes.html';
-        });
+document.getElementById("no").onclick = function(){
+this.innerText = noTexts[i % noTexts.length];
+i++;
+this.style.position="absolute";
+this.style.left=Math.random()*70+"%";
+this.style.top=Math.random()*70+"%";
+}
 
-        // No button shows alert
-        document.getElementById('no').addEventListener('click', function() {
-            alert("Oh no! Please reconsider? 😢");
-        });
-    </script>
+document.getElementById("yes").onclick = function(){
+document.getElementById("page1").classList.remove("active");
+document.getElementById("page2").classList.add("active");
+}
+</script>
+
 </body>
 </html>

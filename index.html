@@ -1,104 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Anushka ❤️</title>
+    <title>For You ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffe6f2;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
 
-<style>
-body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#ffd6e7;
-text-align:center;
-color:#e91e63;
-}
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
 
-.page{
-display:none;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
 
-.active{
-display:flex;
-}
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-h1{
-font-size:28px;
-margin-bottom:10px;
-}
+        .yes {
+            background: #ff4d88;
+            color: white;
+        }
 
-button{
-padding:12px 25px;
-margin:10px;
-border:none;
-border-radius:25px;
-font-size:16px;
-cursor:pointer;
-}
+        .no {
+            background: #ccc;
+        }
 
-#yes{
-background:#e91e63;
-color:white;
-}
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 3s linear infinite;
+        }
 
-#no{
-background:white;
-color:#e91e63;
-border:2px solid #e91e63;
-}
-
-img{
-max-width:90%;
-border-radius:15px;
-margin-top:20px;
-}
-</style>
+        @keyframes float {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-500px);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<div class="page active" id="page1">
-<h1>❤️ Anushka ❤️</h1>
-<h2>Will you be my Valentine?</h2>
-<div>
-<button id="yes">Yes 💖</button>
-<button id="no">No 🙈</button>
-</div>
+<div class="container" id="page1">
+    <h2>Do you like me? 💕</h2>
+    <img src="photo1.jpg" alt="photo">
+    <br>
+    <button class="yes" onclick="showPage2()">Yes 💖</button>
+    <button class="no" id="no">No 😢</button>
 </div>
 
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-<h1>Happy Valentine's Day 💕</h1>
-<img src="photo1.jpg">
-<p style="margin-top:20px;font-size:18px;">
-Teri hasi meri duniya hai ❤️<br>
-Tera saath meri zindagi hai 💞<br>
-I love you forever, Anushka 💖
-</p>
+<div class="container" id="page2" style="display:none;">
+    <h2>Yayyyy ❤️</h2>
+    <p>You made my day 💕</p>
 </div>
 
 <script>
-let noTexts = ["Really? 😏","Nice try 😜","Soch lo 😌"];
-let i = 0;
+    function showPage2() {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+        startHearts();
+    }
 
-document.getElementById("no").onclick = function(){
-this.innerText = noTexts[i % noTexts.length];
-i++;
-this.style.position="absolute";
-this.style.left=Math.random()*70+"%";
-this.style.top=Math.random()*70+"%";
-}
+    document.getElementById("no").addEventListener("mouseover", function() {
+        this.style.position = "absolute";
+        this.style.left = Math.random() * 300 + "px";
+        this.style.top = Math.random() * 300 + "px";
+    });
 
-document.getElementById("yes").onclick = function(){
-document.getElementById("page1").classList.remove("active");
-document.getElementById("page2").classList.add("active");
-}
+    function startHearts() {
+        setInterval(function() {
+            var heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💕";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.bottom = "0px";
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 3000);
+
+        }, 300);
+    }
 </script>
 
 </body>
